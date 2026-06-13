@@ -1,0 +1,87 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Dotmatics",
+  "url": "https://www.dotmatics.com",
+  "description": "Dotmatics is a scientific informatics platform for R&D organizations in pharma and biotech, offering REST, GraphQL, and JDBC APIs for managing experimental data, compound and sample registrations, study definitions, screening workflows, ELN data, and instrument integration through its Luma scientific intelligence platform.",
+  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "sameAs": [
+    "https://www.linkedin.com/company/dotmatics/",
+    "https://x.com/dotmatics",
+    "https://github.com/dotmatics"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "url": "https://www.dotmatics.com/contact",
+    "contactType": "sales"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Dotmatics APIs",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Dotmatics Luma API",
+        "description": "REST, GraphQL, and JDBC APIs for the Luma Scientific Intelligence Platform, enabling data access, workflow automation, instrument integration, and scientific data management for pharma and biotech R&D organizations.",
+        "url": "https://www.dotmatics.com/capabilities/scientific-data-search",
+        "category": [
+          "Scientific Informatics",
+          "REST",
+          "GraphQL",
+          "JDBC",
+          "Workflow Automation"
+        ]
+      },
+      {
+        "@type": "Offer",
+        "name": "Dotmatics ELN API",
+        "description": "Open REST API for the Dotmatics Electronic Lab Notebook (ELN), enabling data routing to data warehouses, LIMS, BI tools, and external systems via the Integration Framework using Apache NiFi.",
+        "url": "https://www.dotmatics.com/blog/eln-and-data-discovery-platform-7-1",
+        "category": [
+          "ELN",
+          "Electronic Lab Notebook",
+          "REST API",
+          "Integration",
+          "Apache NiFi"
+        ]
+      },
+      {
+        "@type": "Offer",
+        "name": "Dotmatics Studies API",
+        "description": "RESTful API layer for Dotmatics Studies, organizing acquired screening data from HTS, HCS, and DMPK studies, enabling protocol definition, assay execution, and integration with external systems.",
+        "url": "https://www.dotmatics.com/capabilities/scientific-data-search",
+        "category": [
+          "Studies",
+          "HTS",
+          "HCS",
+          "DMPK",
+          "Screening",
+          "Assay"
+        ]
+      },
+      {
+        "@type": "Offer",
+        "name": "Dotmatics Registration API",
+        "description": "REST API for compound, sample, and entity registration management, supporting single and batch registration, stereochemistry handling, uniqueness rules, and crosscheck workflows for chemical and biological entities.",
+        "url": "https://www.dotmatics.com/capabilities/entity-registration",
+        "category": [
+          "Compound Registration",
+          "Sample Registration",
+          "Chemistry",
+          "Batch Registration"
+        ]
+      }
+    ]
+  },
+  "knowsAbout": [
+    "Scientific Informatics",
+    "Pharma",
+    "Biotech",
+    "Drug Discovery",
+    "Electronic Lab Notebook",
+    "LIMS",
+    "Compound Registration",
+    "Experimental Data Management",
+    "R&D Data"
+  ]
+}

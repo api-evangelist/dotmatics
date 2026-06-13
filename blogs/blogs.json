@@ -1,0 +1,26 @@
+{
+  "aid": "dotmatics",
+  "name": "Dotmatics",
+  "url": "https://www.dotmatics.com/blog",
+  "description": "Blog posts from Dotmatics covering scientific informatics, ELN, LIMS, drug discovery, and R&D data management.",
+  "created": "2026-06-13",
+  "modified": "2026-06-13",
+  "blogs": [
+    {
+      "title": "Announcing Dotmatics ELN & Data Discovery Platform 7.1",
+      "url": "https://www.dotmatics.com/blog/eln-and-data-discovery-platform-7-1",
+      "author": "Andrew Lebeau",
+      "description": "Version 7.1 of the Dotmatics ELN & Data Discovery Platform introduces major UI/UX enhancements, improved workflows for biologics and formulations research, and strengthened backend API and Apache NiFi connectivity for data exchange across laboratory instruments and analytical applications.",
+      "tags": [
+        "ELN",
+        "Electronic Lab Notebook",
+        "Integration",
+        "Apache NiFi",
+        "REST API",
+        "Data Discovery",
+        "Biologics",
+        "Formulations"
+      ]
+    }
+  ]
+}
