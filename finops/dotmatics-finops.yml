@@ -1,0 +1,60 @@
+name: Dotmatics FinOps
+description: Financial operations guidance for Dotmatics platform API usage. Dotmatics is an enterprise-licensed platform with custom pricing; there are no public pay-per-call or consumption-based API costs. All costs are negotiated annually as part of the enterprise licensing agreement.
+url: https://www.dotmatics.com/contact
+model: enterprise-license
+notes: Dotmatics does not offer a self-serve, consumption-based, or freemium API pricing model. All financial commitments are through enterprise agreements with Dotmatics sales.
+costDrivers:
+  - name: User Licenses
+    description: Per-seat licensing is the primary cost driver; volume discounts available for larger teams
+    visibility: private
+  - name: Module Selection
+    description: Each product module (ELN, LIMS, Studies, Registration, Vortex, Geneious, SnapGene, GraphPad Prism, Luma, Flow Cytometry, Proteomics) is licensed separately and contributes to total cost
+    visibility: private
+  - name: Deployment Model
+    description: SaaS (cloud-hosted) and on-premise deployments have different cost structures; on-premise includes infrastructure and ~20% annual maintenance fees
+    visibility: private
+  - name: Professional Services
+    description: Implementation typically requires 6-12 months of professional services; significant cost factor for new deployments
+    visibility: private
+  - name: API Access
+    description: API access may require specific tier or separate agreement; not bundled by default in all tiers
+    visibility: private
+  - name: Data Storage
+    description: SaaS deployments may include storage limits; large multimodal scientific datasets (e.g., instrument files, imaging data) may incur additional costs
+    visibility: private
+costOptimization:
+  - strategy: Right-size user licenses
+    description: Audit active users regularly; remove inactive seats as Dotmatics charges per-seat
+  - strategy: Module consolidation
+    description: Evaluate which modules are actively used; consolidate or remove unused modules at renewal
+  - strategy: Deployment model assessment
+    description: Compare total cost of ownership between SaaS and on-premise annually, including infrastructure and maintenance overhead
+  - strategy: Professional services planning
+    description: Front-load implementation work to reduce ongoing professional services spend; invest in internal training
+  - strategy: Negotiate multi-year contracts
+    description: Multi-year agreements may yield better pricing; evaluate against product roadmap certainty
+  - strategy: Academic or non-profit discounts
+    description: Academic institutions should request educational pricing, which can be significantly lower than commercial rates
+estimatedCosts:
+  currency: USD
+  elnProfessionalPerUserPerYear:
+    amount: 575
+    source: third-party-estimate
+  elnWithInventoryPerUserPerYear:
+    amount: 675
+    source: third-party-estimate
+  academicPerUserPerYear:
+    amount: 330
+    source: third-party-estimate
+  enterpriseAnnual:
+    range: tens-to-hundreds-of-thousands
+    source: third-party-estimate
+  notes: All estimates are based on third-party analysis and industry reports; actual pricing requires a formal quote from Dotmatics sales
+renewalConsiderations:
+  - Review module usage analytics before renewal to identify unused licenses
+  - Factor in Siemens acquisition (announced 2025) which may affect pricing and roadmap
+  - Evaluate competing platforms (Benchling, Scispot, CDD Vault) as negotiating leverage
+  - Assess integration costs with existing LIMS, ERP, or data warehouse systems
+contact:
+  url: https://www.dotmatics.com/contact
+  notes: All pricing and FinOps details require direct engagement with Dotmatics sales and account management

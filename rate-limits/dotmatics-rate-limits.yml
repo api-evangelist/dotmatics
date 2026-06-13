@@ -1,0 +1,28 @@
+name: Dotmatics Rate Limits
+description: Dotmatics does not publicly document specific API rate limits. As an enterprise platform deployed in SaaS or on-premise configurations, rate limits are typically negotiated as part of the enterprise agreement and may vary by deployment, module, and customer contract.
+url: https://www.dotmatics.com/contact
+notes: Rate limit details are not publicly available. Organizations should contact Dotmatics support or their account manager for rate limit specifications applicable to their deployment.
+rateLimits:
+  publiclyDocumented: false
+  source: not-publicly-available
+  notes: Dotmatics is an enterprise platform with custom deployments; rate limits are expected to be defined at the contract and deployment level rather than published publicly.
+apis:
+  - name: Luma REST API
+    notes: REST, GraphQL, and JDBC interfaces available; no public rate limit documentation found
+    rateLimits: []
+  - name: ELN REST API
+    notes: Open REST API for data routing; no public rate limit documentation found
+    rateLimits: []
+  - name: Studies RESTful API
+    notes: RESTful API layer for HTS/HCS/DMPK studies; no public rate limit documentation found
+    rateLimits: []
+  - name: Registration API
+    notes: REST API for compound and entity registration; no public rate limit documentation found
+    rateLimits: []
+generalGuidance:
+  - Rate limits for on-premise deployments may be configurable by the organization's IT team
+  - SaaS deployments may have platform-enforced limits not disclosed publicly
+  - High-throughput screening data pipelines (e.g., via Lab Connect) are handled via file-based or API-based ingestion subject to enterprise agreement terms
+contact:
+  url: https://www.dotmatics.com/contact
+  notes: Contact Dotmatics account management or support for rate limit details

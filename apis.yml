@@ -1,0 +1,113 @@
+aid: dotmatics
+name: Dotmatics
+description: Dotmatics is a scientific informatics platform for R&D organizations in pharma and biotech, offering REST, GraphQL, and JDBC APIs for managing experimental data, compound and sample registrations, study definitions, screening workflows, ELN data, and instrument integration through its Luma scientific intelligence platform.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/dotmatics/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+type: Index
+tags:
+  - Scientific Informatics
+  - Pharma
+  - Biotech
+  - Drug Discovery
+  - ELN
+  - LIMS
+  - Compound Registration
+  - Experimental Data
+  - R&D
+apis:
+  - aid: dotmatics:dotmatics-luma-api
+    name: Dotmatics Luma API
+    description: REST, GraphQL, and JDBC APIs for the Luma Scientific Intelligence Platform, enabling data access, workflow automation, instrument integration, and scientific data management for pharma and biotech R&D organizations.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.dotmatics.com/capabilities/scientific-data-search
+    baseURL: https://api.dotmatics.com
+    tags:
+      - Scientific Data
+      - REST
+      - GraphQL
+      - JDBC
+      - Luma
+      - Workflow
+      - Instrument Integration
+    properties:
+      - type: Documentation
+        url: https://www.dotmatics.com/whats-new
+      - type: OpenAPI
+        url: https://github.com/dotmatics/openapi-typescript-codegen
+  - aid: dotmatics:dotmatics-eln-api
+    name: Dotmatics ELN API
+    description: Open REST API for the Dotmatics Electronic Lab Notebook (ELN), enabling data routing to data warehouses, LIMS, BI tools, and external systems via the Integration Framework using Apache NiFi.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.dotmatics.com/blog/eln-and-data-discovery-platform-7-1
+    baseURL: https://api.dotmatics.com
+    tags:
+      - ELN
+      - Electronic Lab Notebook
+      - REST API
+      - Integration
+      - Data Warehouse
+      - LIMS
+    properties:
+      - type: Documentation
+        url: https://www.dotmatics.com/blog/eln-and-data-discovery-platform-7-1
+  - aid: dotmatics:dotmatics-studies-api
+    name: Dotmatics Studies API
+    description: RESTful API layer for Dotmatics Studies, which organizes acquired screening data from HTS, HCS, and DMPK studies, enabling protocol definition, assay execution, and integration with external systems and instrument data pipelines.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.dotmatics.com/capabilities/scientific-data-search
+    baseURL: https://api.dotmatics.com
+    tags:
+      - Studies
+      - HTS
+      - HCS
+      - DMPK
+      - Screening
+      - Assay
+      - RESTful
+    properties:
+      - type: Documentation
+        url: https://www.dotmatics.com/whats-new
+  - aid: dotmatics:dotmatics-registration-api
+    name: Dotmatics Registration API
+    description: REST API for compound, sample, and entity registration management in Dotmatics, supporting single and batch registration, stereochemistry handling, uniqueness rules, and crosscheck workflows for chemical and biological entities.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.dotmatics.com/capabilities/entity-registration
+    baseURL: https://api.dotmatics.com
+    tags:
+      - Compound Registration
+      - Sample Registration
+      - Entity Management
+      - Chemistry
+      - Batch Registration
+    properties:
+      - type: Documentation
+        url: https://www.dotmatics.com/capabilities/entity-registration
+common:
+  - type: Website
+    url: https://www.dotmatics.com
+  - type: Documentation
+    url: https://www.dotmatics.com/whats-new
+  - type: GitHubOrg
+    url: https://github.com/dotmatics
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/dotmatics/
+  - type: Blog
+    url: https://www.dotmatics.com/blog
+  - type: Pricing
+    url: https://www.dotmatics.com/contact
+  - type: StatusPage
+    url: https://status.dotmatics.com
+  - type: X
+    url: https://x.com/dotmatics
+  - type: Plans
+    url: plans/dotmatics-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dotmatics-rate-limits.yml
+  - type: FinOps
+    url: finops/dotmatics-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

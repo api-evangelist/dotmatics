@@ -1,0 +1,66 @@
+name: Dotmatics Plans and Pricing
+description: Dotmatics uses a custom enterprise pricing model with no publicly listed tiers. Pricing is quote-based, varying by product modules selected, number of users, deployment model (SaaS or on-premise), and professional services requirements. Prospective customers must contact sales for pricing.
+url: https://www.dotmatics.com/contact
+pricing:
+  model: custom-quote
+  billingCycle: annual
+  notes: Pricing is not publicly disclosed. Organizations must contact Dotmatics sales for a quote. Costs vary significantly based on module selection, user count, and deployment model.
+plans:
+  - name: ELN Professional
+    description: Electronic Lab Notebook for individual lab teams and research groups
+    estimatedCostPerUserPerYear:
+      currency: USD
+      amount: 575
+      source: third-party-estimate
+    modules:
+      - Electronic Lab Notebook (ELN)
+    notes: Estimated cost based on third-party pricing analysis; not confirmed by Dotmatics
+  - name: ELN with Inventory
+    description: ELN plus inventory management capabilities for lab sample and reagent tracking
+    estimatedCostPerUserPerYear:
+      currency: USD
+      amount: 675
+      source: third-party-estimate
+    modules:
+      - Electronic Lab Notebook (ELN)
+      - Inventory Management
+    notes: Estimated cost based on third-party pricing analysis; not confirmed by Dotmatics
+  - name: Academic
+    description: Reduced pricing for academic and non-commercial research institutions
+    estimatedCostPerUserPerYear:
+      currency: USD
+      amount: 330
+      source: third-party-estimate
+    modules:
+      - Electronic Lab Notebook (ELN)
+    notes: Estimated cost based on third-party pricing analysis; not confirmed by Dotmatics
+  - name: Enterprise
+    description: Full Dotmatics platform suite for large pharmaceutical and biotech organizations including ELN, LIMS, Studies, Registration, Vortex, Geneious, SnapGene, GraphPad Prism, and Luma platform access
+    estimatedAnnualCost:
+      currency: USD
+      range: high-tens-to-hundreds-of-thousands
+      source: third-party-estimate
+    modules:
+      - Electronic Lab Notebook (ELN)
+      - LIMS
+      - Studies
+      - Registration
+      - Vortex
+      - Geneious
+      - SnapGene
+      - GraphPad Prism
+      - Luma Scientific Intelligence Platform
+      - Flow Cytometry (OMIQ / FCS Express)
+      - Proteomics (Protein Metrics)
+    deploymentOptions:
+      - SaaS (cloud-hosted)
+      - On-premise
+    additionalCosts:
+      - Implementation and configuration services
+      - Annual maintenance (~20% of license price for on-premise)
+      - Professional services during 6-12 month implementation
+      - API access may require higher tier or separate agreement
+    notes: Enterprise deployments are highly customized; contact Dotmatics sales
+contact:
+  url: https://www.dotmatics.com/contact
+  notes: All pricing requires direct engagement with Dotmatics sales team
