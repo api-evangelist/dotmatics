@@ -1,0 +1,681 @@
+"""
+Dotmatics GraphQL Schema
+Conceptual model derived from the Dotmatics Luma Scientific Intelligence Platform
+data domain (pharma/biotech R&D). Covers compound registration, assay/study
+management, ELN, sequencing, and structural chemistry.
+"""
+
+# ─────────────────────────────────────────────
+# Scalars
+# ─────────────────────────────────────────────
+
+scalar DateTime
+scalar JSON
+scalar SMILES
+scalar InChI
+scalar Sequence   # nucleotide or amino-acid sequence string
+scalar Molfile    # MDL Molfile / SDF block
+
+# ─────────────────────────────────────────────
+# Enums
+# ─────────────────────────────────────────────
+
+enum RegistrationStatus {
+  PENDING
+  REGISTERED
+  REJECTED
+  DEPRECATED
+}
+
+enum StudyType {
+  HTS
+  HCS
+  DMPK
+  ADME
+  TOXICOLOGY
+  IN_VIVO
+  OTHER
+}
+
+enum AssayType {
+  BIOCHEMICAL
+  CELL_BASED
+  BINDING
+  FUNCTIONAL
+  STRUCTURAL
+  PHARMACOKINETIC
+  OTHER
+}
+
+enum SampleType {
+  COMPOUND
+  BIOLOGICAL
+  MIXTURE
+  FORMULATION
+  REFERENCE_STANDARD
+  OTHER
+}
+
+enum PlateFormat {
+  FORMAT_6
+  FORMAT_24
+  FORMAT_48
+  FORMAT_96
+  FORMAT_384
+  FORMAT_1536
+}
+
+enum PlateStatus {
+  CREATED
+  IN_USE
+  COMPLETED
+  DISCARDED
+}
+
+enum AnalysisStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+enum ResultStatus {
+  RAW
+  REVIEWED
+  APPROVED
+  REJECTED
+}
+
+enum ReactionType {
+  SYNTHESIS
+  WORKUP
+  PURIFICATION
+  ANALYTICAL
+  OTHER
+}
+
+enum SequenceType {
+  DNA
+  RNA
+  PROTEIN
+  PLASMID
+  OTHER
+}
+
+# ─────────────────────────────────────────────
+# Core types
+# ─────────────────────────────────────────────
+
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  firstName: String
+  lastName: String
+  displayName: String
+  roles: [String!]!
+  projects: [Project!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Project {
+  id: ID!
+  name: String!
+  description: String
+  code: String
+  owner: User!
+  members: [User!]
+  compounds: [Compound!]
+  studies: [Study!]
+  experiments: [Experiment!]
+  libraries: [Library!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Chemistry / Registration
+# ─────────────────────────────────────────────
+
+type Structure {
+  id: ID!
+  smiles: SMILES
+  inchi: InChI
+  inchiKey: String
+  molfile: Molfile
+  molecularFormula: String
+  molecularWeight: Float
+  exactMass: Float
+  logP: Float
+  hBondDonors: Int
+  hBondAcceptors: Int
+  rotatableBonds: Int
+  rings: Int
+  aromaticRings: Int
+  stereocenters: Int
+}
+
+type Compound {
+  id: ID!
+  corporateId: String!
+  name: String
+  synonyms: [String!]
+  structure: Structure
+  status: RegistrationStatus!
+  batches: [Batch!]
+  library: Library
+  project: Project
+  assayResults: [Result!]
+  annotations: JSON
+  registeredBy: User
+  registeredAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Batch {
+  id: ID!
+  batchNumber: String!
+  compound: Compound!
+  synthesisRoute: Synthesis
+  purity: Float
+  purityMethod: String
+  amount: Float
+  amountUnit: String
+  concentration: Float
+  concentrationUnit: String
+  solvent: String
+  location: String
+  samples: [Sample!]
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Registry {
+  id: ID!
+  name: String!
+  description: String
+  entityType: String!
+  compounds: [Compound!]
+  sequences: [Sequence!]
+  totalEntities: Int!
+  createdAt: DateTime!
+}
+
+type Library {
+  id: ID!
+  name: String!
+  description: String
+  project: Project
+  compounds: [Compound!]
+  totalCompounds: Int!
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Biology / Sequences
+# ─────────────────────────────────────────────
+
+type Sequence {
+  id: ID!
+  name: String!
+  type: SequenceType!
+  sequenceData: Sequence
+  length: Int
+  organism: String
+  geneSymbol: String
+  accessionNumber: String
+  annotations: JSON
+  project: Project
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Sample Management
+# ─────────────────────────────────────────────
+
+type Sample {
+  id: ID!
+  barcode: String
+  name: String
+  type: SampleType!
+  batch: Batch
+  compound: Compound
+  sequence: Sequence
+  concentration: Float
+  concentrationUnit: String
+  volume: Float
+  volumeUnit: String
+  plate: Plate
+  well: Well
+  location: String
+  status: String
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Plate {
+  id: ID!
+  barcode: String!
+  name: String
+  format: PlateFormat!
+  status: PlateStatus!
+  wells: [Well!]
+  assay: Assay
+  experiment: Experiment
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Well {
+  id: ID!
+  plate: Plate!
+  row: String!
+  column: Int!
+  address: String!
+  sample: Sample
+  concentration: Float
+  concentrationUnit: String
+  volume: Float
+  volumeUnit: String
+  results: [Result!]
+  annotations: JSON
+}
+
+# ─────────────────────────────────────────────
+# Studies / Assays / Protocols
+# ─────────────────────────────────────────────
+
+type Study {
+  id: ID!
+  name: String!
+  description: String
+  type: StudyType!
+  project: Project!
+  protocols: [Protocol!]
+  assays: [Assay!]
+  experiments: [Experiment!]
+  owner: User!
+  status: String
+  startDate: DateTime
+  endDate: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Protocol {
+  id: ID!
+  name: String!
+  description: String
+  version: String
+  study: Study
+  assay: Assay
+  steps: JSON
+  parameters: JSON
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Assay {
+  id: ID!
+  name: String!
+  description: String
+  type: AssayType!
+  study: Study
+  protocol: Protocol
+  experiments: [Experiment!]
+  results: [Result!]
+  readouts: [String!]
+  concentrationUnit: String
+  project: Project
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Experiment {
+  id: ID!
+  name: String!
+  description: String
+  assay: Assay
+  study: Study
+  protocol: Protocol
+  plates: [Plate!]
+  results: [Result!]
+  analysis: [Analysis!]
+  status: String
+  runDate: DateTime
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Results / Analysis
+# ─────────────────────────────────────────────
+
+type Result {
+  id: ID!
+  experiment: Experiment
+  assay: Assay!
+  compound: Compound
+  batch: Batch
+  sample: Sample
+  well: Well
+  readout: String!
+  value: Float
+  unit: String
+  qualifier: String
+  status: ResultStatus!
+  rawData: JSON
+  analysis: Analysis
+  reviewedBy: User
+  reviewedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Analysis {
+  id: ID!
+  name: String!
+  experiment: Experiment!
+  type: String
+  status: AnalysisStatus!
+  parameters: JSON
+  results: [Result!]
+  outputData: JSON
+  performedBy: User
+  startedAt: DateTime
+  completedAt: DateTime
+  createdAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Chemistry / ELN
+# ─────────────────────────────────────────────
+
+type Reaction {
+  id: ID!
+  name: String
+  type: ReactionType!
+  experiment: Experiment
+  synthesis: Synthesis
+  reactants: [Compound!]
+  products: [Compound!]
+  reagents: [String!]
+  solvents: [String!]
+  conditions: JSON
+  yield: Float
+  yieldUnit: String
+  notes: String
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Synthesis {
+  id: ID!
+  name: String
+  description: String
+  targetCompound: Compound
+  steps: [Reaction!]
+  batches: [Batch!]
+  project: Project
+  createdBy: User
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─────────────────────────────────────────────
+# Pagination helpers
+# ─────────────────────────────────────────────
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+  totalCount: Int!
+}
+
+type CompoundConnection {
+  edges: [CompoundEdge!]!
+  pageInfo: PageInfo!
+}
+
+type CompoundEdge {
+  node: Compound!
+  cursor: String!
+}
+
+type ResultConnection {
+  edges: [ResultEdge!]!
+  pageInfo: PageInfo!
+}
+
+type ResultEdge {
+  node: Result!
+  cursor: String!
+}
+
+# ─────────────────────────────────────────────
+# Filter inputs
+# ─────────────────────────────────────────────
+
+input CompoundFilter {
+  corporateId: String
+  status: RegistrationStatus
+  libraryId: ID
+  projectId: ID
+  smilesSubstructure: SMILES
+  molecularWeightMin: Float
+  molecularWeightMax: Float
+}
+
+input ResultFilter {
+  assayId: ID
+  experimentId: ID
+  compoundId: ID
+  readout: String
+  status: ResultStatus
+  valueMin: Float
+  valueMax: Float
+}
+
+input StudyFilter {
+  type: StudyType
+  projectId: ID
+  status: String
+}
+
+# ─────────────────────────────────────────────
+# Query
+# ─────────────────────────────────────────────
+
+type Query {
+  # User
+  me: User
+  user(id: ID!): User
+  users(limit: Int, offset: Int): [User!]!
+
+  # Projects
+  project(id: ID!): Project
+  projects(limit: Int, offset: Int): [Project!]!
+
+  # Registry
+  registry(id: ID!): Registry
+  registries: [Registry!]!
+
+  # Compounds
+  compound(id: ID!): Compound
+  compoundByCorporateId(corporateId: String!): Compound
+  compounds(filter: CompoundFilter, first: Int, after: String): CompoundConnection!
+
+  # Batches
+  batch(id: ID!): Batch
+  batches(compoundId: ID, limit: Int, offset: Int): [Batch!]!
+
+  # Libraries
+  library(id: ID!): Library
+  libraries(projectId: ID, limit: Int, offset: Int): [Library!]!
+
+  # Structures (substructure / similarity search)
+  structureSearch(smiles: SMILES!, type: String, threshold: Float): [Compound!]!
+
+  # Sequences
+  sequence(id: ID!): Sequence
+  sequences(projectId: ID, type: SequenceType, limit: Int, offset: Int): [Sequence!]!
+
+  # Samples
+  sample(id: ID!): Sample
+  sampleByBarcode(barcode: String!): Sample
+  samples(compoundId: ID, plateId: ID, limit: Int, offset: Int): [Sample!]!
+
+  # Plates
+  plate(id: ID!): Plate
+  plateByBarcode(barcode: String!): Plate
+  plates(experimentId: ID, status: PlateStatus, limit: Int, offset: Int): [Plate!]!
+
+  # Wells
+  well(id: ID!): Well
+  wells(plateId: ID!): [Well!]!
+
+  # Studies
+  study(id: ID!): Study
+  studies(filter: StudyFilter, limit: Int, offset: Int): [Study!]!
+
+  # Protocols
+  protocol(id: ID!): Protocol
+  protocols(studyId: ID, limit: Int, offset: Int): [Protocol!]!
+
+  # Assays
+  assay(id: ID!): Assay
+  assays(studyId: ID, type: AssayType, limit: Int, offset: Int): [Assay!]!
+
+  # Experiments
+  experiment(id: ID!): Experiment
+  experiments(assayId: ID, studyId: ID, limit: Int, offset: Int): [Experiment!]!
+
+  # Results
+  result(id: ID!): Result
+  results(filter: ResultFilter, first: Int, after: String): ResultConnection!
+
+  # Analysis
+  analysis(id: ID!): Analysis
+  analyses(experimentId: ID, status: AnalysisStatus, limit: Int, offset: Int): [Analysis!]!
+
+  # Reactions / Synthesis
+  reaction(id: ID!): Reaction
+  reactions(experimentId: ID, type: ReactionType, limit: Int, offset: Int): [Reaction!]!
+
+  synthesis(id: ID!): Synthesis
+  syntheses(projectId: ID, limit: Int, offset: Int): [Synthesis!]!
+}
+
+# ─────────────────────────────────────────────
+# Mutation
+# ─────────────────────────────────────────────
+
+input RegisterCompoundInput {
+  smiles: SMILES!
+  name: String
+  synonyms: [String!]
+  libraryId: ID
+  projectId: ID
+  annotations: JSON
+}
+
+input CreateStudyInput {
+  name: String!
+  description: String
+  type: StudyType!
+  projectId: ID!
+}
+
+input CreateAssayInput {
+  name: String!
+  description: String
+  type: AssayType!
+  studyId: ID!
+  protocolId: ID
+  readouts: [String!]
+  concentrationUnit: String
+}
+
+input CreateExperimentInput {
+  name: String!
+  description: String
+  assayId: ID!
+  studyId: ID
+  protocolId: ID
+  runDate: DateTime
+}
+
+input RecordResultInput {
+  experimentId: ID!
+  assayId: ID!
+  compoundId: ID
+  batchId: ID
+  sampleId: ID
+  wellId: ID
+  readout: String!
+  value: Float!
+  unit: String
+  qualifier: String
+  rawData: JSON
+}
+
+type Mutation {
+  # Compound Registration
+  registerCompound(input: RegisterCompoundInput!): Compound!
+  updateCompound(id: ID!, annotations: JSON): Compound!
+  deprecateCompound(id: ID!, reason: String): Compound!
+
+  # Batch
+  createBatch(compoundId: ID!, purity: Float, amount: Float, amountUnit: String): Batch!
+
+  # Library
+  createLibrary(name: String!, description: String, projectId: ID): Library!
+  addCompoundToLibrary(libraryId: ID!, compoundId: ID!): Library!
+
+  # Study / Assay / Experiment
+  createStudy(input: CreateStudyInput!): Study!
+  createAssay(input: CreateAssayInput!): Assay!
+  createExperiment(input: CreateExperimentInput!): Experiment!
+
+  # Results
+  recordResult(input: RecordResultInput!): Result!
+  reviewResult(id: ID!, approved: Boolean!, notes: String): Result!
+
+  # Analysis
+  triggerAnalysis(experimentId: ID!, type: String!, parameters: JSON): Analysis!
+
+  # Plates / Wells
+  createPlate(barcode: String!, format: PlateFormat!, experimentId: ID): Plate!
+  assignSampleToWell(plateId: ID!, address: String!, sampleId: ID!): Well!
+
+  # Sequences
+  registerSequence(name: String!, type: SequenceType!, sequenceData: String!, projectId: ID): Sequence!
+
+  # ELN / Reactions
+  createReaction(name: String, type: ReactionType!, experimentId: ID, conditions: JSON): Reaction!
+  createSynthesis(name: String!, targetCompoundId: ID, projectId: ID): Synthesis!
+}
+
+# ─────────────────────────────────────────────
+# Subscriptions (event streaming)
+# ─────────────────────────────────────────────
+
+type Subscription {
+  resultRecorded(experimentId: ID!): Result!
+  analysisStatusChanged(analysisId: ID!): Analysis!
+  compoundRegistered(registryId: ID): Compound!
+}
