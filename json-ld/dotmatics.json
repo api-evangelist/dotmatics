@@ -4,7 +4,7 @@
   "name": "Dotmatics",
   "url": "https://www.dotmatics.com",
   "description": "Dotmatics is a scientific informatics platform for R&D organizations in pharma and biotech, offering REST, GraphQL, and JDBC APIs for managing experimental data, compound and sample registrations, study definitions, screening workflows, ELN data, and instrument integration through its Luma scientific intelligence platform.",
-  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "logo": "https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg",
   "sameAs": [
     "https://www.linkedin.com/company/dotmatics/",
     "https://x.com/dotmatics",

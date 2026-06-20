@@ -4,7 +4,7 @@ description: Dotmatics is a scientific informatics platform for R&D organization
   in pharma and biotech, offering REST, GraphQL, and JDBC APIs for managing experimental
   data, compound and sample registrations, study definitions, screening workflows,
   ELN data, and instrument integration through its Luma scientific intelligence platform.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/dotmatics/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -26,7 +26,7 @@ apis:
   description: REST, GraphQL, and JDBC APIs for the Luma Scientific Intelligence Platform,
     enabling data access, workflow automation, instrument integration, and scientific
     data management for pharma and biotech R&D organizations.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.dotmatics.com/capabilities/scientific-data-search
   baseURL: https://api.dotmatics.com
   tags:
@@ -49,7 +49,7 @@ apis:
   description: Open REST API for the Dotmatics Electronic Lab Notebook (ELN), enabling
     data routing to data warehouses, LIMS, BI tools, and external systems via the
     Integration Framework using Apache NiFi.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.dotmatics.com/blog/eln-and-data-discovery-platform-7-1
   baseURL: https://api.dotmatics.com
   tags:
@@ -67,7 +67,7 @@ apis:
   description: RESTful API layer for Dotmatics Studies, which organizes acquired screening
     data from HTS, HCS, and DMPK studies, enabling protocol definition, assay execution,
     and integration with external systems and instrument data pipelines.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.dotmatics.com/capabilities/scientific-data-search
   baseURL: https://api.dotmatics.com
   tags:
@@ -86,7 +86,7 @@ apis:
   description: REST API for compound, sample, and entity registration management in
     Dotmatics, supporting single and batch registration, stereochemistry handling,
     uniqueness rules, and crosscheck workflows for chemical and biological entities.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.dotmatics.com/capabilities/entity-registration
   baseURL: https://api.dotmatics.com
   tags:
