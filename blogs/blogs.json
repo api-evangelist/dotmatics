@@ -2,14 +2,11 @@
   "repo": "dotmatics",
   "feeds": [
     {
-      "source": "https://www.dotmatics.com/blog",
-      "feed_url": "",
-      "saved": 0,
-      "error": "JS-rendered listing, no post links extractable",
-      "method": "agent-scrape"
+      "source": "https://www.linkedin.com/company/dotmatics/",
+      "error": "HTTPError"
     }
   ],
-  "fetched": "2026-06-27T12:38:12Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "post_count": 0,
-  "agent_pulled": "2026-06-27"
+  "agent_pulled": "2026-07-04"
 }
