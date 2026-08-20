@@ -47,6 +47,14 @@ apis:
   - GraphQL
   - JDBC
   - Luma
+  - Workflows
+  - Instrument Integration
+  tags_raw:
+  - Scientific Data
+  - REST
+  - GraphQL
+  - JDBC
+  - Luma
   - Workflow
   - Instrument Integration
   properties:
