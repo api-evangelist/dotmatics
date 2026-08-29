@@ -4,6 +4,17 @@ description: Dotmatics is a scientific informatics platform for R&D organization
   in pharma and biotech, offering REST, GraphQL, and JDBC APIs for managing experimental
   data, compound and sample registrations, study definitions, screening workflows,
   ELN data, and instrument integration through its Luma scientific intelligence platform.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: approval
