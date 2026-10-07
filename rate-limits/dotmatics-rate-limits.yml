@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: Dotmatics Rate Limits
 description: Dotmatics does not publicly document specific API rate limits. As an enterprise platform deployed in SaaS or on-premise configurations, rate limits are typically negotiated as part of the enterprise agreement and may vary by deployment, module, and customer contract.
 url: https://www.dotmatics.com/contact
