@@ -64,26 +64,118 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Dotmatics is a scientific informatics platform for R&D organizations in pharma and biotech. The platform offers REST, GraphQL, and JDBC APIs for managing experimental data, compound and sample registrations, study definitions, screening workflows, ELN data, and instrument integration through its Luma scientific intelligence platform.
+Dotmatics is a scientific informatics platform for R&D organizations in pharma and biotech, whose API documentation is customer-only, for managing experimental data, compound and sample registrations, study definitions, screening workflows, ELN data, and instrument integration through its Luma scientific intelligence platform.
 
-## APIs
+**Areas:** Scientific Informatics · Pharma · Biotechnology · Drug Discovery · ELN · LIMS · Compound Registration · Experimental Data · R&D
 
-- **Dotmatics Luma API** - REST, GraphQL, and JDBC interfaces for the Luma Scientific Intelligence Platform, enabling data access, workflow automation, and multimodal scientific data management
-- **Dotmatics ELN API** - Open REST API for the Electronic Lab Notebook, supporting data routing to warehouses, LIMS, and BI tools via the Integration Framework
-- **Dotmatics Studies API** - RESTful API for organizing and accessing HTS, HCS, and DMPK screening study data
-- **Dotmatics Registration API** - REST API for compound, sample, and entity registration with stereochemistry support and uniqueness rules
+## Dotmatics on APIs.io
 
-## Resources
+Everything profiled for Dotmatics is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dotmatics/](https://apis.io/providers/dotmatics/)** — or go straight to one of the APIs or properties below.
+
+### APIs (4)
+
+- [Dotmatics Luma API](https://apis.io/apis/dotmatics/dotmatics-luma-api/) — REST, GraphQL, and JDBC APIs for the Luma Scientific Intelligence Platform, enabling data access, workflow automation, instrument integration, and…
+- [Dotmatics ELN API](https://apis.io/apis/dotmatics/dotmatics-eln-api/) — Open REST API for the Dotmatics Electronic Lab Notebook (ELN), enabling data routing to data warehouses, LIMS, BI tools, and external systems via the…
+- [Dotmatics Studies API](https://apis.io/apis/dotmatics/dotmatics-studies-api/) — RESTful API layer for Dotmatics Studies, which organizes acquired screening data from HTS, HCS, and DMPK studies, enabling protocol definition, assay…
+- [Dotmatics Registration API](https://apis.io/apis/dotmatics/dotmatics-registration-api/) — REST API for compound, sample, and entity registration management in Dotmatics, supporting single and batch registration, stereochemistry handling,…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [Dotmatics GraphQL API](https://apis.io/graphqls/dotmatics/dotmatics-graphql/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dotmatics Domain Security](https://apis.io/security/dotmatics/dotmatics-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Dotmatics Plans Pricing](https://apis.io/plans/dotmatics/dotmatics-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Dotmatics Rate Limits](https://apis.io/rate-limits/dotmatics/dotmatics-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Dotmatics Finops](https://apis.io/finops/dotmatics/dotmatics-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.dotmatics.com)
+- [Documentation](https://www.dotmatics.com/whats-new)
+- [Pricing](https://www.dotmatics.com/contact)
+- [Support](https://community.dotmatics.com/Support/s/)
+- [Changelog](https://www.dotmatics.com/whats-new)
 - [Blog](https://www.dotmatics.com/blog)
-- [What's New](https://www.dotmatics.com/whats-new)
-- [GitHub Organization](https://github.com/dotmatics)
-- [LinkedIn](https://www.linkedin.com/company/dotmatics/)
-- [X / Twitter](https://x.com/dotmatics)
-- [Contact / Pricing](https://www.dotmatics.com/contact)
-- [Status Page](https://status.dotmatics.com)
+- [Terms of service](https://www.dotmatics.com/terms-and-conditions)
+- [Privacy policy](https://www.dotmatics.com/privacy-policy)
+- [Status](https://status.dotmatics.com)
 
-## Maintainer
+## API Evangelist rating
 
-Kin Lane (kin@apievangelist.com)
+**Kin Score 22.0** — emerging · rubric 0.24.0 · scored 2026-10-20
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 39.5 |
+
+**Agent readiness 24.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.6** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dotmatics/](https://apis.io/providers/dotmatics/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dotmatics: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dotmatics/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
